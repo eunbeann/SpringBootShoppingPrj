@@ -3,11 +3,13 @@ package com.shop.repository;
 import com.shop.entity.Item;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.querydsl.QuerydslPredicateExecutor;
 import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 
-public interface ItemRepository extends JpaRepository<Item, Long> {
+public interface ItemRepository extends JpaRepository<Item, Long>, QuerydslPredicateExecutor<Item> {
+//    Query~ 인터페이스 상속 추가
 //    2개의 제네릭 타입을 사용하는데 첫 번째는 엔티티 타입을, 두번째에는 기본키 타입을 넣어준다.
 //    Item 클래스는 키본키 타입이 Long이므로 Long을 넣어줌
 //    JpaRepository는 기본적인 CRUD 및 페이징 처리를 위한 메소드가 정의되어 있음
